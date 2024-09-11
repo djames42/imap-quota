@@ -1,0 +1,27 @@
+# imap-quota
+
+To use, create a systems.property file with the following entries (see properties.sample):
+
+imap_server=[FQDN for imap email server]
+imap_username=[full login username for email server - might be the email address]
+imap_password=[login password for email server]
+imap_quota=[percentage of quota to check as a float, i.e. 68.0]
+
+Compile source with maven:
+
+$ mvn clean package
+
+Run code:
+
+java -jar -DpropFile=/path/to/system.properties [-Doutput=true] /path/to/imap-quota-1.1-jar-with-dependencies.jar
+
+Optional output parameter will display quota information to stdout:
+
+Prop File: /Users/djames/Code/Java/imap-quota/resources/system.properties
+	Server: mail.speakeasy.net - Username: djames@speakeasy.net - Threshold: 68.00
+Speakeasy Quota: 659,715 of 1,048,678 (62.91%)
+
+Whether or not the output is true or false, if the email storage is higher than the quota, an
+email will be sent to the account specified warning about the quota. The idea is that this should
+be called via cron on a regular basis to keep email usage from exceeding quota causing email
+receipt to be blocked.
