@@ -14,24 +14,10 @@ public class MyQuota {
     public int getUsage() {
         return usage;
     }
-
-    public void setUsage(int usage) {
-        this.usage = usage;
-    }
-
     public int getLimit() {
         return limit;
     }
-
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
-
     public float getRatio() {
         return ratio * 100;
-    }
-
-    public void setRatio(float ratio) {
-        this.ratio = ratio;
     }
 }

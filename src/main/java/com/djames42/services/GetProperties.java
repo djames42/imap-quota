@@ -10,7 +10,6 @@ public class GetProperties {
     private Properties properties;
 
     public GetProperties(String propFile) {
-//        System.out.printf("Prop File: %s\n", propFile);
         properties = new Properties();
         try {
             properties.load(new FileInputStream(propFile));

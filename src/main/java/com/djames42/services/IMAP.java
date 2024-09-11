@@ -44,7 +44,6 @@ public class IMAP {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public MyQuota IMAPQuota() {
@@ -95,7 +94,6 @@ public class IMAP {
             smtp_properties.put("mail.smtps.ssl.trust", host);
             smtp_properties.put("mail.protocol.ssl.trust", host);
         }
-
 
         Session session = Session.getInstance(smtp_properties,
                 new javax.mail.Authenticator() {
