@@ -6,6 +6,7 @@ imap_server=[FQDN for imap email server]
 imap_username=[full login username for email server - might be the email address]
 imap_password=[login password for email server]
 imap_quota=[percentage of quota to check as a float, i.e. 68.0]
+warning_to_email=[email address to send warning message to]
 
 Compile source with maven:
 

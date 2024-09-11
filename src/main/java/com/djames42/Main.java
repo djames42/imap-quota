@@ -17,7 +17,7 @@ public class Main {
         if (output == true)
             System.out.printf("Prop File: %s\n\tServer: %s - Username: %s - Threshold: %4.2f\n", propFile, properties.getProperties("imap_server"), properties.getProperties("imap_username"), Float.parseFloat(properties.getProperties("imap_quota")) );
         float threshold = 68.0F;
-        IMAP imap = new IMAP(properties.getProperties("imap_server"), properties.getProperties("imap_username"), properties.getProperties("imap_password"));
+        IMAP imap = new IMAP(properties.getProperties("imap_server"), properties.getProperties("imap_username"), properties.getProperties("imap_password"), properties.getProperties("warning_to_email"));
         MyQuota myQuota = imap.IMAPQuota();
         if ( myQuota.getRatio() > Float.valueOf(properties.getProperties("imap_quota"))) imap.IMAPSendWarning(myQuota);
         if (output == true)

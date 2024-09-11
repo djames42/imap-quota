@@ -20,16 +20,18 @@ public class IMAP {
     String imap_server;
     String imap_username;
     String imap_password;
+    String warning_to_email;
     Properties properties;
     Session emailSession;
     Store store;
     IMAPStore imapStore;
 
-    public IMAP(String imap_server, String imap_username, String imap_password) {
+    public IMAP(String imap_server, String imap_username, String imap_password, String warning_to_email) {
         try {
             this.imap_server = imap_server;
             this.imap_username = imap_username;
             this.imap_password = imap_password;
+            this.warning_to_email = warning_to_email;
 
             this.properties = new Properties();
             this.properties.put("mail.store.protocol", "imaps");
@@ -54,18 +56,11 @@ public class IMAP {
             e.printStackTrace();
         }
         myQuota = new MyQuota((int) quotas[0].resources[0].usage, (int) quotas[0].resources[0].limit);
-//            for (Quota quota : quotas ) {
-//                System.out.println(String.format("quotaRoot: '%s'", quota.quotaRoot));
-//                for (Quota.Resource resource : quota.resources) {
-//                    System.out.println(String.format("name:'%s', limit:'%s', usage:'%s'", resource.name, resource.limit, resource.usage));
-//                }
-//            }
-
         return myQuota;
     }
 
     public void IMAPSendWarning(MyQuota myQuota) {
-        String to = "daniel.james@me.com";
+        String to = this.warning_to_email;
         String from = this.imap_username;
         final String username = this.imap_username;
         final String password = this.imap_password;

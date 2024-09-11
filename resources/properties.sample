@@ -2,3 +2,4 @@ imap_server=mail.server.com
 imap_username=mail_username
 imap_password=mail_password
 imap_quota=68.0
+warning_to_email=destination@warning.com
