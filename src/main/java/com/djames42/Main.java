@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         String propFile = System.getProperty("propFile");
         boolean output=false;
-        if ( System.getProperty("output") != null ) output=true;
+        if ( System.getProperty("output") != null && System.getProperty("output").toLowerCase().equals("true") ) output=true;
         GetProperties properties = new GetProperties(propFile);
         if (output == true)
             System.out.printf("Prop File: %s\n\tServer: %s - Username: %s - Threshold: %4.2f\n", propFile, properties.getProperties("imap_server"), properties.getProperties("imap_username"), Float.parseFloat(properties.getProperties("imap_quota")) );
