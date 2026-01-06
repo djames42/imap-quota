@@ -54,7 +54,7 @@ public class IMAP {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        myQuota = new MyQuota((int) quotas[0].resources[0].usage, (int) quotas[0].resources[0].limit);
+        myQuota = new MyQuota((long) quotas[0].resources[0].usage, (long) quotas[0].resources[0].limit);
         return myQuota;
     }
 
