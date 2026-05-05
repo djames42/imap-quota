@@ -107,7 +107,7 @@ public class IMAP {
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             message.setSubject("WARNING!!! Speakeasy Email Quota!");
             message.setText(String.format("WARNING! Speakeasy Mail Quota at %,d of %,d (%6.2f%%)", myQuota.getUsage(), myQuota.getLimit(), myQuota.getRatio()));
-            System.out.println(Meter.meter(myQuota.getRatio(),'-'));
+//            System.out.println(Meter.meter(myQuota.getRatio(),'-'));
             message.setHeader("X-Priority", "1");
             Transport.send(message);
         } catch (AddressException e) {
